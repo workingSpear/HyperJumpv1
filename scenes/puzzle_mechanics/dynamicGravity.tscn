@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://1wlle1f35k1a"]
+
+[ext_resource type="Script" path="res://dynamicGravity.gd" id="1_cjomw"]
+[ext_resource type="Texture2D" uid="uid://cfa8x23kah2ho" path="res://icon.svg" id="1_mmjw0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sdmag"]
+
+[node name="rotatingGrav" type="Area2D"]
+scale = Vector2(0.502121, 0.402569)
+script = ExtResource("1_cjomw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.59637, 1.61111)
+texture = ExtResource("1_mmjw0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(10.3747, 9.96026)
+shape = SubResource("RectangleShape2D_sdmag")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
